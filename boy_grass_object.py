@@ -16,5 +16,11 @@ def handle_events():
 open_canvas()
 # game loop
 
+reset_world()
+while 1:
+    handle_events()
+    update_world()
+    render_world()
+    delay(0.05)
 # finalization code
 close_canvas()
