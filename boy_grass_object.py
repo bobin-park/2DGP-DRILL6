@@ -12,6 +12,7 @@ class Grass:
         pass
 
 
+
 # Game object class here
 def handle_events():
     global running
@@ -25,22 +26,38 @@ def handle_events():
 
 open_canvas()
 # game loop
+class Boy:
+    def __init__(self):
+        self.image = load_image('run_animation.png')
+        self.x=400
+        self.frame =0
+    def draw(self):
+        self.image.clip_draw(self.frame*100,0,100,100,self.x,90)
+    def update(self):#소년을 오른쪽으로 이동시키는 상호작용
+        self.x+=5
+        self.frame=(self.frame+1)%8
+        pass
 
 def reset_world():
     global running 
     global grass
+    global boy
     
     running = True
     grass = Grass() # 클래스 생성 이름은 대문자로 하는 것이 좋음
-    pass
 
+    boy = Boy()
+    pass
+# 게임 로직
 def update_world():
+    boy.update()# 소년의 상호작용을 시뮬레이션 계산
     pass
 
 def render_world():
     # 월드에 객체(= grass)들을 그린다
     clear_canvas()
     grass.draw()
+    boy.draw()
     update_canvas()
     pass
 
