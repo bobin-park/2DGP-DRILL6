@@ -32,7 +32,7 @@ class Boy:
     def __init__(self):
         self.image = load_image('run_animation.png')
         self.x,self.y=random.randint(100,300),90
-        self.frame =0
+        self.frame =random.randint(1,7)
     def draw(self):
         self.image.clip_draw(self.frame*100,0,100,100,self.x,self.y)
     def update(self):#소년을
