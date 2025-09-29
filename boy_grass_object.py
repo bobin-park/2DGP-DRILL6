@@ -1,3 +1,6 @@
+#객체 지향 방식으로 구현한 코드
+#-> 개발에 효율적인
+#--> 왜? : 유지보수, 확장성, 재사용성 GOOD
 from pico2d import *
 import random
 class Grass:
@@ -5,12 +8,11 @@ class Grass:
     def __init__(self): #== 생성자 == 객체 생성, 속성 알려주는 것
         self.image = load_image('grass.png') #== 객체 속성
         #== grass 객체의 속성을 정의하고 초기화 하는 것
-    pass # pass == 아무것도 없을 때 쓰는 것
 
     def draw(self):
         self.image.draw(400,30)
+    def update(self):
         pass
-
 
 
 # Game object class here
@@ -29,38 +31,39 @@ open_canvas()
 class Boy:
     def __init__(self):
         self.image = load_image('run_animation.png')
-        self.x=400
+        self.x,self.y=random.randint(100,300),90
         self.frame =0
     def draw(self):
-        self.image.clip_draw(self.frame*100,0,100,100,self.x,90)
-    def update(self):#소년을 오른쪽으로 이동시키는 상호작용
+        self.image.clip_draw(self.frame*100,0,100,100,self.x,self.y)
+    def update(self):#소년을
+        # 오른쪽으로 이동시키는 상호작용
         self.x+=5
         self.frame=(self.frame+1)%8
-        pass
 
 def reset_world():
     global running 
     global grass
-    global boy
+    global team
     
     running = True
     grass = Grass() # 클래스 생성 이름은 대문자로 하는 것이 좋음
 
-    boy = Boy()
+    # boy = Boy()
+    team =[Boy() for _ in range(11)]
     pass
 # 게임 로직
 def update_world():
-    boy.update()# 소년의 상호작용을 시뮬레이션 계산
-    pass
+    grass.update()
+    for boy in team:
+        boy.update()# 소년의 상호작용을 시뮬레이션 계산
 
 def render_world():
     # 월드에 객체(= grass)들을 그린다
     clear_canvas()
     grass.draw()
-    boy.draw()
+    for boy in team:
+        boy.draw()
     update_canvas()
-    pass
-
 
 reset_world()
 
