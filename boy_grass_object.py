@@ -49,7 +49,7 @@ class smallball:
     def update(self):
         if self.y>30+35:
             self.y -= random.randint(0, 5)
-            self.x += random.randint(0, 5)
+            # self.x += random.randint(0, 5)
             if self.y<30+35:
                 self.y=30+35
 
@@ -64,7 +64,7 @@ class bigball:
     def update(self):
         if self.y > 30+45:
             self.y -= random.randint(0, 5)
-            self.x += random.randint(0, 5)
+            # self.x += random.randint(0, 5)
             if self.y < 30+45:
                 self.y = 30+45
     def draw(self):
