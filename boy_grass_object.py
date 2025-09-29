@@ -7,6 +7,10 @@ class Grass:
         #== grass 객체의 속성을 정의하고 초기화 하는 것
     pass # pass == 아무것도 없을 때 쓰는 것
 
+    def draw(self):
+        self.image.draw(400,30)
+        pass
+
 
 # Game object class here
 def handle_events():
@@ -34,6 +38,10 @@ def update_world():
     pass
 
 def render_world():
+    # 월드에 객체(= grass)들을 그린다
+    clear_canvas()
+    grass.draw()
+    update_canvas()
     pass
 
 
