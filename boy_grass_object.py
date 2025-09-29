@@ -1,5 +1,11 @@
 from pico2d import *
 import random
+class Grass:
+    # 생성자 함수 , 초기화 수행
+    def __init__(self): #== 생성자 == 객체 생성, 속성 알려주는 것
+        self.image = load_image('grass.png') #== 객체 속성
+        #== grass 객체의 속성을 정의하고 초기화 하는 것
+    pass # pass == 아무것도 없을 때 쓰는 것
 
 
 # Game object class here
@@ -16,11 +22,28 @@ def handle_events():
 open_canvas()
 # game loop
 
+def reset_world():
+    global running 
+    global grass
+    
+    running = True
+    grass = Grass() # 클래스 생성 이름은 대문자로 하는 것이 좋음
+    pass
+
+def update_world():
+    pass
+
+def render_world():
+    pass
+
+
 reset_world()
-while 1:
+
+while running:
     handle_events()
     update_world()
     render_world()
     delay(0.05)
+
 # finalization code
 close_canvas()
