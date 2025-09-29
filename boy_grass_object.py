@@ -47,6 +47,8 @@ class smallball:
         self.image = load_image('ball21x21.png')
 
     def update(self):
+        self.y -= random.randint(1, 5)
+        self.x += random.randint(1, 5)
         pass
 
     def draw(self):
