@@ -59,7 +59,7 @@ class smallball:
 
 class bigball:
     def __init__(self):
-        self.x,self.y=random.randint(100,300),599;
+        self.x,self.y=random.randint(100,600),599;
         self.image=load_image('ball41x41.png')
     def update(self):
         if self.y > 30+45:
@@ -73,7 +73,7 @@ class bigball:
 class Boy:
     def __init__(self):
         self.image = load_image('run_animation.png')
-        self.x,self.y=random.randint(100,300),90
+        self.x,self.y=random.randint(100,600),90
         self.frame =random.randint(1,7)
     def draw(self):
         self.image.clip_draw(self.frame*100,0,100,100,self.x,self.y)
