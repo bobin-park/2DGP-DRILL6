@@ -47,9 +47,11 @@ class smallball:
         self.image = load_image('ball21x21.png')
 
     def update(self):
-        self.y -= random.randint(1, 5)
-        self.x += random.randint(1, 5)
-        pass
+        if self.y>30:
+            self.y -= random.randint(0, 5)
+            self.x += random.randint(0, 5)
+            if self.y<30:
+                self.y=30
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -60,9 +62,11 @@ class bigball:
         self.x,self.y=random.randint(100,300),599;
         self.image=load_image('ball41x41.png')
     def update(self):
-        self.y-=random.randint(1,5)
-        self.x += random.randint(1, 5)
-        pass
+        if self.y > 30:
+            self.y -= random.randint(0, 5)
+            self.x += random.randint(0, 5)
+            if self.y < 30:
+                self.y = 30
     def draw(self):
         self.image.draw(self.x,self.y)
 
