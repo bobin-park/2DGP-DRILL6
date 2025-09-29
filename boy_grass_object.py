@@ -47,11 +47,11 @@ class smallball:
         self.image = load_image('ball21x21.png')
 
     def update(self):
-        if self.y>30:
+        if self.y>30+35:
             self.y -= random.randint(0, 5)
             self.x += random.randint(0, 5)
-            if self.y<30:
-                self.y=30
+            if self.y<30+35:
+                self.y=30+35
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -62,11 +62,11 @@ class bigball:
         self.x,self.y=random.randint(100,300),599;
         self.image=load_image('ball41x41.png')
     def update(self):
-        if self.y > 30:
+        if self.y > 30+45:
             self.y -= random.randint(0, 5)
             self.x += random.randint(0, 5)
-            if self.y < 30:
-                self.y = 30
+            if self.y < 30+45:
+                self.y = 30+45
     def draw(self):
         self.image.draw(self.x,self.y)
 
@@ -99,10 +99,11 @@ def reset_world():
     zombie = Zombie()
     world.append(zombie)
 
-    smallballs = [smallball() for _ in range(10)]
-    world += smallballs
+
     bigballs = [bigball() for _ in range(10)]
     world += bigballs
+    smallballs = [smallball() for _ in range(10)]
+    world += smallballs
 
     pass
 # 게임 로직
